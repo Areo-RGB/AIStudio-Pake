@@ -43,17 +43,3 @@ jobs:
             src-tauri/target/**/bundle/**/*.exe
           if-no-files-found: error
           retention-days: 7
-
-  build-macos:
-    runs-on: macos-latest
-    steps:
-      - uses: dtolnay/rust-toolchain@stable
-      - uses: actions/setup-node@v4
-        with: { node-version: 22 }
-      - run: npm install -g pake-cli
-      - run: pake "https://aistudio.google.com/apps?source=user&tag=created-by-you" --name AIStudio --identifier com.pake.aistudio --safe-domain accounts.google.com,google.com --new-window --json
-      - uses: actions/upload-artifact@v4
-        with:
-          name: AIStudio-macOS
-          path: "*.dmg"
-          if-no-files-found: warn
