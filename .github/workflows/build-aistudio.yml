@@ -26,7 +26,7 @@ jobs:
         shell: pwsh
         run: |
           $env:Path = "$env:USERPROFILE\.cargo\bin;$env:Path"
-          pake "https://aistudio.google.com/apps?source=user&tag=created-by-you" --name AIStudio --identifier com.pake.aistudio --safe-domain accounts.google.com,google.com --new-window --width 1280 --height 800 --json
+          pake "https://aistudio.google.com/apps?source=user&tag=created-by-you" --name AIStudio --identifier com.pake.aistudio --safe-domain accounts.google.com,google.com,aistudio.google.com --new-window --force-internal-navigation --width 1280 --height 800 --json
 
       - name: List outputs
         shell: pwsh
